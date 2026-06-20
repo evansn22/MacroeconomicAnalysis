@@ -41,5 +41,5 @@ VALUES
 ('CPIAUC', 'Consumer Price Index for All Urban Consumers: All Items in U.S. City Average', 'Inflation', 'Monthly', 'Index', 'FRED'),
 ('UNRATE', 'Unemployment Rate', 'Labor', 'Quarterly', 'Percent', 'FRED'),
 ('GDP', 'Real Gross Domestic Product', 'Growth', 'Quarterly', 'Billions of Dollars', 'FRED'),
-('PCE', 'Personal Consumption Expenditures', 'Growth', 'Monthly', 'Billions of Dollars', 'FRED'),
+('PCE', 'Personal Consumption Expenditures', 'Inflation', 'Monthly', 'Billions of Dollars', 'FRED'),
 ('FEDFUNDS', 'Federal Funds Effective Rate', 'Monetary', 'Monthly', 'Percent', 'FRED');
