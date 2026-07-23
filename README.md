@@ -27,8 +27,8 @@ Created Common Table Expressions (CTEs):
 
 Created SQL Views:
 Two analytical views were created to support different stages of the project:
-- Quarterly aggregated View of Indicator Values and Percentage Change Statistics in a long table format [macroeconomic_data_long.csv](./data/macroeconomic_data_long.csv), designed for flexible visualization and business intelligence applications.
-- Quarterly aggregated View of Indicator Values in a short table format with Columns: year, quarter, fed_funds_rate, cpi, gdp, pce, where [macroeconomic_data_short.csv](./data/macroeconomic_data_short.csv) is optimized for exploratory data analysis, feature engineering, and lagged correlation analysis.
+- Quarterly aggregated View of Indicator Values and Percentage Change Statistics in a long table format [macroeconomic_data_long.csv](./data/processed/macroeconomic_data_long.csv), designed for flexible visualization and business intelligence applications.
+- Quarterly aggregated View of Indicator Values in a short table format with Columns: year, quarter, fed_funds_rate, cpi, gdp, pce, where [macroeconomic_data_short.csv](./data/processed/macroeconomic_data_short.csv) is optimized for exploratory data analysis, feature engineering, and lagged correlation analysis.
 
 Although both long and wide formatted datasets were generated during the SQL transformation pipeline, the wide-format (macroeconomic_data_short) view was used for all subsequent exploratory analysis and lagged correlation modeling, as each indicator needed to exist as a separate variable for statistical comparison. The long table was generated for Power BI dashboarding if the analysis yielded insights requiring such. 
 
