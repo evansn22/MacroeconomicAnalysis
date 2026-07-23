@@ -17,11 +17,30 @@ Federal Economic data is a topic I have become particularly interested in as the
 6. Implemented a reusable lag **parameter search algorithm** to calculate Pearson correlation coefficients across one-to eight-quarter lags to identify the strongest observed relationship for each indicator.
 7. Interpreted the results, discussed the statistical limitations of the findings, and identified opportunities for future research.
    
-## Technologies Used
-### Languages: 
-Python, SQL
-### Libraries: 
-Pandas, Matplotlib, Seaborn
+## Skills Demonstrated
+
+### SQL
+- Relational Database Design
+- Common Table Expressions (CTEs)
+- SQL Views
+- Window Functions 'Lag()'
+- Data Aggregation
+- ETL Pipeline Development
+
+### Python
+- Pandas
+- Matplotlib
+- Seaborn
+- Time-Series Data Analysis
+- Feature Engineering
+
+### Data Analytics
+- Exploratory Data Analysis (EDA)
+- Data Cleaning & Preprocessing
+- Lag Feature Engineering
+- Pearson Correlation Analysis
+- Statistical Interpretation
+- Data Visualization
 
 ## MySQL Database Design
 ![MySQL Schema](./sql/FEDSchema.png)
