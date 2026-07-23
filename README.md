@@ -15,7 +15,7 @@ Languages: Python, SQL
 Libraries: Pandas, Matplotlib
 
 ## Database Design
-![MySQL Schema](./MacroeconomicAnalysis/sql/FEDSchema.png)
+![MySQL Schema](./sql/FEDSchema.png)
 
 ## Data Engineering
 
