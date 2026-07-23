@@ -8,13 +8,14 @@ Federal Economic data is a topic I have become particularly interested in with t
 ## Research Question
 ### How do changes in the Federal Funds Rate relate to subsequent changes in CPI, PCE, GDP, and the unemployment rate over multiple quarterly lag intervals?
 
-## Technologies Used
-Languages : Python, SQL
-Libraries : Pandas, Matplotlib
-
 ## Project Workflow
+Data 
+## Technologies Used
+Languages: Python, SQL
+Libraries: Pandas, Matplotlib
 
 ## Database Design
+![MySQL Schema](MacroeconomicAnalysis/sql/FEDSchema.png)
 
 ## Data Engineering
 
