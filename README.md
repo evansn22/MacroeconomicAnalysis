@@ -27,7 +27,7 @@ Pandas, Matplotlib, Seaborn
 ![MySQL Schema](./sql/FEDSchema.png)
 
 ## Data Engineering
-To prepare the data for analysis, I standardized indicator frequencies and engineered the data for downstream analytics. Using Common Table Expressions to initially demonstrate the logic for aggregations and then generating Views to display Short & Long formatted tables for modeling & visualizations. These transformations were implemented in the [QueryingDB.sql](./sql/QueryingDB.sql) file utilizing a combination of Common Table Expressions (CTEs) and SQL Views, creating 2 reusable analytical datasets for downstream visualization and analysis.
+To prepare the data for analysis, I standardized indicator frequencies and engineered the data for downstream analytics. Using Common Table Expressions to initially demonstrate the logic for aggregations and then generated Views to display Short & Long formatted tables for modeling & visualizations. These transformations were implemented in the [QueryingDB.sql](./sql/QueryingDB.sql) file utilizing a combination of Common Table Expressions (CTEs) and SQL Views, creating 2 reusable analytical datasets for downstream visualization and analysis.
 
 **Created Common Table Expressions (CTEs):** 
 - Aggregating monthly observations into calendar-quarter averages while preserving existing quarterly observations and  producing a standardized dataset for time-series analysis.
@@ -42,10 +42,14 @@ Although both long and wide formatted datasets were generated during the SQL tra
 
 ## Exploratory Data Analysis
 The exploratory analysis examined the completeness, distribution, and long-term behavior of each macroeconomic indicator before feature engineering. Summary statistics were used to understand variable scale and dispersion, while time-series visualizations identified long-term trends, cyclical behavior, and potential structural differences across indicators.
+
 ### Federal Funds Rate
-![Federal Funds Rate](images/fedfund_rate.png)
+![Federal Funds Rate](python/figures/fedfund_rate.png)
+Visualizing the Federal Funds Rate Observations over time, it's evident that changes occur cyclically, delineating periods of expansionary and contractionary monetary policy. The Tightening cycle of the 1980s represents a notable peak in the dataset, with interest rates reaching historically elevated levels as the Federal Reserve implemented restrictive monetary policy to address high inflation. Outside of this period, the Federal Funds Rate generally remained below 10% throughout the observed timeframe, with subsequent cycles reflecting changes in the broader economic environment and inflation conditions.
+
 ### Macroeconomic Indicators
-![Indicators](images/macroeconomic_indicators.png)
+![Indicators](python/figures/macroeconomic_indicators.png)
+Visualizing each macroeconomic indicator over time highlights the distinct long-term trends and cyclical patterns present across the dataset. GDP demonstrates a strong upward trend over time, reflecting overall economic expansion, while CPI and PCE exhibit gradual increases consistent with long-term inflationary trends. Short-term declines or disruptions are visible during recessionary periods, where economic activity and inflation dynamics can shift. In contrast, unemployment figures are more volatile, as they are expressed as a percentage rate and respond quicker to changes in labor market conditions. These differences in scale and economic behavior emphasize the importance of carefully considering each indicator's context when evaluating their relationships with Federal Funds Rate movements.
 
 
 ## Feature Engineering
