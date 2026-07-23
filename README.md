@@ -44,24 +44,44 @@ Although both long and wide formatted datasets were generated during the SQL tra
 The exploratory analysis examined the completeness, distribution, and long-term behavior of each macroeconomic indicator before feature engineering. Summary statistics were used to understand variable scale and dispersion, while time-series visualizations identified long-term trends, cyclical behavior, and potential structural differences across indicators.
 
 ### Federal Funds Rate
-![Federal Funds Rate](python/figures/fedfund_rate.png)
+![Federal Funds Rate](python/figures/fedfund_rate.png)  
 Visualizing the Federal Funds Rate Observations over time, it's evident that changes occur cyclically, delineating periods of expansionary and contractionary monetary policy. The Tightening cycle of the 1980s represents a notable peak in the dataset, with interest rates reaching historically elevated levels as the Federal Reserve implemented restrictive monetary policy to address high inflation. Outside of this period, the Federal Funds Rate generally remained below 10% throughout the observed timeframe, with subsequent cycles reflecting changes in the broader economic environment and inflation conditions.
 
 ### Macroeconomic Indicators
-![Indicators](python/figures/macroeconomic_indicators.png)
-Visualizing each macroeconomic indicator over time highlights the distinct long-term trends and cyclical patterns present across the dataset. GDP demonstrates a strong upward trend over time, reflecting overall economic expansion, while CPI and PCE exhibit gradual increases consistent with long-term inflationary trends. Short-term declines or disruptions are visible during recessionary periods, where economic activity and inflation dynamics can shift. In contrast, unemployment figures are more volatile, as they are expressed as a percentage rate and respond quicker to changes in labor market conditions. These differences in scale and economic behavior emphasize the importance of carefully considering each indicator's context when evaluating their relationships with Federal Funds Rate movements.
-
+![Indicators](python/figures/macroeconomic_indicators.png)  
+Visualizing each macroeconomic indicator over time highlights the distinct long-term trends and cyclical patterns present across the dataset. GDP demonstrates a strong upward trend over time, reflecting overall economic expansion, while CPI and PCE exhibit gradual increases consistent with long-term inflationary trends. Short-term declines or disruptions are visible during recessionary periods, where economic activity and inflation dynamics can shift. In contrast, unemployment figures are more volatile, as they are expressed as a percentage rate and respond more quickly to changes in labor market conditions. These differences in scale and economic behavior emphasize the importance of carefully considering each indicator's context when evaluating their relationships with Federal Funds Rate movements.
 
 ## Feature Engineering
+
 
 ## Methodology
 The analysis evaluated the lagged relationship by displaying a historical line graph showing the Pearson correlation coefficient between lagged changes in FedFund Rates and changes to each macro-indicator metric generated from Pandas' .corr() function. Correlations were computed across lag intervals ranging from one to eight quarters and visualized to identify the timing of the strongest observed statistical association. To keep the scope of the project manageable, I chose 8 quarters as the maximum length, limiting the evaluation to a timeframe that remains economically interpretable. This analysis utilized a reusable parameter search algorithm function, which generated a lagged column for each FedFund Interest Rate interval and then stored each Pearson coefficient for display. Lagged analysis was the chosen methodology for this project since monetary policy changes are expected to have a delayed rather than immediate impact on macroeconomic figures. 
 
 ## Results & Key Findings
 
+The focus of this analysis centered upon the lagged relationship between changes in the Federal Funds Rate and four key macroeconomic indicators: CPI, PCE, Unemployment, and GDP. By engineering quarterly lag features and comparing correlations across multiple time horizons, the analysis examined how the timing of monetary policy aligns with different aspects of macroeconomic performance. The results indicate that macroeconomic indicators do not respond uniformly to Federal Funds Rate changes, with CPI demonstrating the strongest observed relationship at a short-term lag, while unemployment exhibited its highest observed correlation at a longer lag interval. However, the correlation values all remained weak suggesting that looking strictly at Federal Funds Rate changes provides limited insight into movements in these macroeconomic indicators. These findings highlight the complexity of monetary policy transmission within the broader economy and emphasize that economic outcomes are influenced by multiple factors beyond interest rate adjustments.
+
+### Lagged Impact Analysis of Fed Funds Interest Rates on CPI
+![CPI_corr](python/figures/cpi_correlation.png)  
+Interpreting this Plot, it's visible that the correlation between the Fed Funds Interest Rate changes and Consumer Price Index growth is strongest at the 1 quarter mark within a 2 year time frame. The relationship consistently weakens as the lag interval increases, suggesting that changes in the Federal Funds Rate are more closely associated with CPI movements in the near term than over longer horizons. While this analysis identifies the timing of the strongest relationship, correlation alone does not establish a causal effect. The correlation also remains weak, indicating that Federal Funds Rate changes alone explain limited variation in CPI growth. 
+
+### Lagged Impact Analysis of Fed Funds Interest Rates on PCE
+![PCE_corr](python/figures/pce_correlation.png)
+Interpreting this plot, the strongest observed correlation between Federal Funds Rate changes and quarterly changes in Personal Consumption Expenditures (PCE) occurs at the 7-quarter lag interval within the 2-year analysis window. However, unlike the CPI analysis, the relationship does not follow a consistent pattern as the lag interval increases. While the lag analysis identifies the interval with the strongest observed correlation, the weakness of the overall relationship indicates that PCE movements are likely influenced by additional economic factors beyond monetary policy changes.
+
+### Lagged Impact Analysis of Fed Funds Interest Rates on Unemployment
+![UNEMP_corr](python/figures/unemployment_correlation.png)  
+Interpreting the resulting plot, the strongest observed correlation between Federal Funds Rate changes and quarter-over-quarter changes in the Unemployment Rate occurs at the 8-quarter lag within the two-year analysis window. Although the correlation reaches its highest value at the longest tested lag interval, the relationship does not display a strong or consistent pattern across the lag periods analyzed. Since the strongest observed correlation occurs at the maximum tested lag of 8 quarters, expanding the analysis window could provide additional insight into whether a longer-term relationship exists. However, the correlation remains very weak, indicating that Federal Funds Rate changes have limited linear association with changes in the Unemployment Rate within this dataset.
+
+### Lagged Impact Analysis of Fed Funds Interest Rates on GDP
+![GDP_corr](python/figures/gdp_correlation.png)
+Interpreting the resulting plot, the strongest observed correlation between Federal Funds Rate changes and quarter-over-quarter changes in Gross Domestic Product (GDP) occurs at the 1-quarter lag within the two-year analysis window. The relationship generally weakens as the lag interval increases, suggesting that the observed association between monetary policy changes and GDP growth does not persist strongly over longer time horizons. However, the correlation remains weak, indicating that Federal Funds Rate adjustments alone explain limited variation in GDP growth. As with the other analyses, these findings identify statistical associations rather than causal effects.
+
 ## Limitations
 
+
 ## Future Improvements
+Several opportunities exist to extend this analysis and potentially discover deeper insights. Future work could evaluate longer lag intervals to determine whether stronger relationships emerge beyond two years, particularly for indicators where longer lags produced increasing correlations. More advanced statistical techniques, such as multiple linear regression or time-series forecasting models, could provide a more rigorous evaluation of the dynamic relationships between monetary policy and macroeconomic indicators. Additional macroeconomic indicators, including housing activity and consumer confidence metrics, could also be incorporated to broaden the scope of analysis of monetary policy transmission throughout the economy.
 
 ## References
 All data was gathered from the Federal Reserve Bank of St Louis Economic Database
