@@ -6,11 +6,17 @@ The Federal Funds Rate is one of the primary tools the Federal Reserve utilizes 
 Federal Economic data is a topic I have become particularly interested in as the Federal Reserve underwent a regime change during the time of this project's development. Becoming more educated on the topic has captured my focus, and what better way to put my analytical skills to use than to produce an analysis of the effects of Monetary Policy on the Macro Economy. Intuitively, it made sense that the effects of Monetary Policy changes, specifically the Federal Funds Interest Rate, would have a lagged impact on Macroeconomics, which was something that I wanted to explore and potentially verify with this project. 
 
 ## Research Question
-
 ### How do changes in the Federal Funds Rate relate to subsequent changes in CPI, PCE, GDP, and the unemployment rate over multiple quarterly lag intervals?
 
 ## Project Workflow
-Data 
+1. Historical observations were downloaded from the Federal Reserve Economic Data (FRED) website and imported into a MySQL database for transformation and analysis.
+2. Designed a MySQL relational database to store indicator metadata and historical observations.
+3. Generated 2 analytics-ready datasets through SQL transformations using Common Table Expressions (CTEs) and SQL Views to standardize reporting frequencies and engineer quarterly aggregated data.
+4. Performed exploratory data analysis in Python through summary statistics, missing value assessment, and time-series visualizations.
+5. Engineered lag features and quarter-over-quarter change variables to evaluate delayed monetary policy effects.
+6. Implemented a reusable lag parameter search algorithm to calculate Pearson correlation coefficients across one-to eight-quarter lag intervals.
+7. Interpreted the results, evaluating the strength and timing of observed relationships while documenting project limitations and opportunities for future research.
+   
 ## Technologies Used
 Languages: Python, SQL
 Libraries: Pandas, Matplotlib
@@ -23,7 +29,7 @@ To prepare the data for analysis, I standardized indicator frequencies and engin
 
 Created Common Table Expressions (CTEs): 
 - Aggregating monthly observations into calendar-quarter averages while preserving existing quarterly observations and  producing a standardized dataset for time-series analysis.
-- Obtaining VALUE & Percentage Change Statistics for Each Observation, incorporating the LAG() window function
+- Obtaining Value & Percentage Change Statistics for Each Observation, incorporating the LAG() window function
 
 Created SQL Views:
 Two analytical views were created to support different stages of the project:
