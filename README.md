@@ -1,5 +1,5 @@
 # Financial Analytics Project: Exploring Federal Funds Rate Impacts on Macroeconomic Indicators
-## **Nicholas Evans** 
+### **Nicholas Evans** 
 ## Project Overview
 The Federal Funds Rate is one of the primary tools the Federal Reserve utilizes for implementing monetary policy and is adjusted to influence inflation, employment, and overall economic output. While the effects of monetary policy are well understood conceptually, they are generally expected to occur with a delay rather than immediately. This project explores whether lagged relationships between Federal Funds Rate changes and major macroeconomic indicators can be identified through exploratory time-series analysis.
 
