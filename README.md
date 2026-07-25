@@ -23,7 +23,7 @@ Federal Economic data is a topic I have become particularly interested in as the
 - Relational Database Design
 - Common Table Expressions (CTEs)
 - SQL Views
-- Window Functions 'Lag()'
+- Window Functions 
 - Data Aggregation
 - ETL Pipeline Development
 
@@ -46,10 +46,10 @@ Federal Economic data is a topic I have become particularly interested in as the
 ![MySQL Schema](./sql/FEDSchema.png)
 
 ## Data Engineering
-To prepare the data for analysis, I standardized indicator frequencies and engineered the data for downstream analytics. Using Common Table Expressions to initially demonstrate the logic for aggregations and then generated Views to display Short & Long formatted tables for modeling & visualizations. These transformations were implemented in the [QueryingDB.sql](./sql/QueryingDB.sql) file utilizing a combination of Common Table Expressions (CTEs) and SQL Views, creating 2 reusable analytical datasets for downstream visualization and analysis. 
+To prepare the data for analysis, I standardized indicator frequencies and engineered the data for downstream analytics. Using **Common Table Expressions** to initially demonstrate the logic for aggregations and then generating Views to display **Short & Long formatted tables** for modeling & visualizations. These transformations were implemented in the [QueryingDB.sql](./sql/QueryingDB.sql) file utilizing a combination of Common Table Expressions and SQL Views, creating 2 reusable analytical datasets for downstream visualization and analysis. 
 
 **Created Common Table Expressions (CTEs):** 
-- Aggregating monthly observations into calendar-quarter averages while preserving existing quarterly observations and  producing a standardized dataset for time-series analysis.
+- Aggregating monthly observations into calendar-quarter averages while preserving existing quarterly observations and producing a standardized dataset for time-series analysis.
 - Obtaining Value & Percentage Change Statistics for Each Observation, incorporating the LAG() window function
 
 **Created SQL Views:**
@@ -81,10 +81,10 @@ Engineered features included:
 These engineered features enabled the analysis to compare changes in monetary policy with subsequent changes in macroeconomic indicators through lagged Pearson correlation analysis.
 
 ## Methodology
-The analysis evaluated the lagged relationship by displaying a historical line graph showing the Pearson correlation coefficient between lagged changes in FedFund Rates and changes to each macro-indicator metric generated from Pandas' .corr() function. Correlations were computed across lag intervals ranging from one to eight quarters and visualized to identify the timing of the strongest observed statistical association. To keep the scope of the project manageable, I chose 8 quarters as the maximum length, limiting the evaluation to a timeframe that remains economically interpretable. This analysis utilized a reusable parameter search algorithm function, which generated a lagged column for each FedFund Interest Rate interval and then stored each Pearson coefficient for display. Lagged analysis was the chosen methodology for this project since monetary policy changes are expected to have a delayed rather than immediate impact on macroeconomic figures. 
+The analysis evaluated the lagged relationship, showcasing a historical line graph showing the Pearson correlation coefficient between lagged changes in FedFund Rates and changes to each macro-indicator metric generated from Pandas' .corr() function. Correlations were computed across lag intervals ranging from one to eight quarters and visualized to identify the timing of the strongest observed statistical association. To keep the scope of the project manageable, I chose 8 quarters as the maximum length, limiting the evaluation to a timeframe that remains economically interpretable. This analysis utilized a reusable parameter search algorithm function, which generated a lagged column for each FedFund Interest Rate interval and then stored each Pearson coefficient for display. Lagged analysis was the chosen methodology for this project since monetary policy changes are expected to have a delayed rather than immediate impact on macroeconomic figures. 
 
 ## Results & Key Findings
-The focus of this analysis centered upon the lagged relationship between changes in the Federal Funds Rate and four key macroeconomic indicators: CPI, PCE, Unemployment, and GDP. By engineering quarterly lag features and comparing correlations across multiple time horizons, the analysis examined how the timing of monetary policy aligns with different aspects of macroeconomic performance. The results indicate that macroeconomic indicators do not respond uniformly to Federal Funds Rate changes, with CPI demonstrating the strongest observed relationship at a short-term lag, while unemployment exhibited its highest observed correlation at a longer lag interval. However, the correlation values all remained weak, suggesting that looking strictly at Federal Funds Rate changes provides limited insight into movements in these macroeconomic indicators. These findings highlight the complexity of monetary policy transmission within the broader economy and emphasize that economic outcomes are influenced by multiple factors beyond interest rate adjustments.
+The focus of this analysis centered upon the lagged relationship between changes in the Federal Funds Rate and four key macroeconomic indicators: CPI, PCE, Unemployment, and GDP. By engineering quarterly lag features and comparing correlations across multiple time horizons, the analysis examined how the timing of monetary policy aligns with different aspects of macroeconomic performance. The results indicate that macroeconomic indicators do not respond uniformly to Federal Funds Rate changes, with **CPI demonstrating the strongest observed relationship** at a short-term lag, while unemployment exhibited its highest observed correlation at a longer lag interval. However, the correlation values all remained weak, suggesting that looking strictly at Federal Funds Rate changes provides limited insight into movements in these macroeconomic indicators. These findings highlight the complexity of monetary policy transmission within the broader economy and emphasize that **economic outcomes are influenced by multiple factors beyond interest rate adjustments.**
 
 ### Lagged Impact Analysis of Fed Funds Interest Rates on CPI
 ![CPI_corr](python/figures/cpi_correlation.png)  
